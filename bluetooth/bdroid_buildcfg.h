@@ -18,7 +18,19 @@
 #ifndef _BDROID_BUILDCFG_H
 #define _BDROID_BUILDCFG_H
 
-#define BTM_DEF_LOCAL_NAME   "GT-I9300"
+#define BTM_DEF_LOCAL_NAME   "ODROIDX2
+
+// At present either USB or UART is supported
+#define BLUETOOTH_HCI_USE_USB          TRUE
+// Bluetooth Low Power Mode is supported on BT4.0
+#define HCILP_INCLUDED                 FALSE
+
+// 10.2 Updates
+#define BLE_INCLUDED TRUE
+#define BTA_GATT_INCLUDED FALSE
+#define SMP_INCLUDED FALSE
+#define PAN_NAP_DISABLED TRUE
+"
 
 /* Defined if the kernel does not have support for CLOCK_BOOTTIME_ALARM */
 #define KERNEL_MISSING_CLOCK_BOOTTIME_ALARM TRUE

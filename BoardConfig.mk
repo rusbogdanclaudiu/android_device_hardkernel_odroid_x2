@@ -13,10 +13,23 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-include device/samsung/smdk4412-common/BoardCommonConfig.mk
+include device/hardkernel/smdk4412-common/BoardCommonConfig.mk
 
-# Wifi
-WIFI_DRIVER_MODULE_PATH :=
+#
+# Wifi related defines
+#
+# ralink module = rt5370sta, realtek = rtl8191su
+#
+WIFI_DRIVER          := rtl8192cu 
+BOARD_WIFI_VENDOR    := realtek 
+BOARD_WLAN_DEVICE    := rtl8192cu 
+ 
+WPA_SUPPLICANT_VERSION              := VER_0_8_X 
+BOARD_WPA_SUPPLICANT_DRIVER         := NL80211 
+BOARD_WPA_SUPPLICANT_PRIVATE_LIB    := lib_driver_cmd_nl80211 
+WIFI_DRIVER_MODULE_NAME             := rtl8192cu 
+WIFI_DRIVER_MODULE_PATH             := /system/lib/modules/8192cu.ko 
+
 
 # Bionic
 MALLOC_SVELTE := true
@@ -24,28 +37,28 @@ TARGET_NEEDS_PLATFORM_TEXT_RELOCATIONS := true
 LIBART_IMG_BASE := 0x30000000
 
 # RIL
-BOARD_PROVIDES_LIBRIL := true
-BOARD_MODEM_TYPE := xmm6262
-TARGET_SPECIFIC_HEADER_PATH += device/samsung/i9300/include
-BOARD_GLOBAL_CFLAGS += -DDISABLE_ASHMEM_TRACKING
-BOARD_RIL_CLASS := ../../../device/samsung/i9300/ril
+BOARD_PROVIDES_LIBRIL := false
+#BOARD_MODEM_TYPE := xmm6262
+#TARGET_SPECIFIC_HEADER_PATH += device/samsung/i9300/include
+#BOARD_GLOBAL_CFLAGS += -DDISABLE_ASHMEM_TRACKING
+#BOARD_RIL_CLASS := ../../../device/samsung/i9300/ril
 
 # Graphics
 TARGET_REQUIRES_SYNCHRONOUS_SETSURFACE := true
 
 # Bluetooth
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/samsung/i9300/bluetooth
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/hardkernel/odroidx2/bluetooth
 
 # Kernel
-TARGET_KERNEL_SOURCE := kernel/samsung/smdk4412
-TARGET_KERNEL_CONFIG := lineageos_i9300_defconfig
+TARGET_KERNEL_SOURCE := kernel/hardkernel/smdk4412
+TARGET_KERNEL_CONFIG := lineageos_odroidx2_defconfig
 
 # Cache
 BOARD_CACHEIMAGE_PARTITION_SIZE := 1048576
 BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := f2fs
 
 # Recovery
-TARGET_RECOVERY_FSTAB := device/samsung/i9300/rootdir/fstab.smdk4x12
+TARGET_RECOVERY_FSTAB := device/hardkernel/odroidx2/rootdir/fstab.odroidx2
 TARGET_RECOVERY_DENSITY := mdpi
 TARGET_USERIMAGES_USE_F2FS := true
 RECOVERY_FSTAB_VERSION := 2
@@ -54,8 +67,8 @@ RECOVERY_FSTAB_VERSION := 2
 TARGET_POWERHAL_VARIANT := pegasusq
 
 # Selinux
-BOARD_SEPOLICY_DIRS += \
-    device/samsung/i9300/selinux
+#BOARD_SEPOLICY_DIRS += \
+#    device/samsung/i9300/selinux
 
 # assert
-TARGET_OTA_ASSERT_DEVICE := m0,i9300,GT-I9300
+TARGET_OTA_ASSERT_DEVICE := m0,odroidx2,odroidx2

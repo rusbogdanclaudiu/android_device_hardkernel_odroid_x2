@@ -1,26 +1,26 @@
 # Release name
-PRODUCT_RELEASE_NAME := i9300
+PRODUCT_RELEASE_NAME := odroidx2
 
 # Inherit device configuration
-$(call inherit-product, device/samsung/smdk4412-common/common.mk)
-$(call inherit-product, device/samsung/i9300/i9300.mk)
+$(call inherit-product, device/hardkernel/smdk4412-common/common.mk)
+$(call inherit-product, device/hardkernel/odroidx2/odroidx2.mk)
 
 # Inherit from the common Open Source product configuration
 $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
 
 # Boot animation
-TARGET_SCREEN_HEIGHT := 1280
-TARGET_SCREEN_WIDTH := 720
+TARGET_SCREEN_HEIGHT := 800
+TARGET_SCREEN_WIDTH := 480
 
 # Inherit some common stuff.
 $(call inherit-product, vendor/cm/config/common_full_phone.mk)
 
 # Device identifier. This must come after all inclusions
-PRODUCT_DEVICE := i9300
-PRODUCT_NAME := lineage_i9300
-PRODUCT_BRAND := samsung
-PRODUCT_MODEL := GT-I9300
-PRODUCT_MANUFACTURER := samsung
+PRODUCT_DEVICE := odroidx2
+PRODUCT_NAME := lineage_odroidx2
+PRODUCT_BRAND := hardkernel
+PRODUCT_MODEL := odroidx2
+PRODUCT_MANUFACTURER := hardkernel
 
 # Set build fingerprint / ID / Product Name etc.
 PRODUCT_BUILD_PROP_OVERRIDES += \

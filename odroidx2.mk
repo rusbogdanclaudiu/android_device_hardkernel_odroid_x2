@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-LOCAL_PATH := device/samsung/i9300
+LOCAL_PATH := device/hardkernel/odroidx2
 
 # Overlay
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
@@ -25,7 +25,7 @@ PRODUCT_AAPT_PREF_CONFIG := xhdpi
 
 # Init files
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/fstab.smdk4x12:root/fstab.smdk4x12 \
+    $(LOCAL_PATH)/rootdir/fstab.smdk4x12:root/fstab.odroidx2 \
     $(LOCAL_PATH)/rootdir/init.target.rc:root/init.target.rc
 
 # Audio
@@ -60,9 +60,9 @@ PRODUCT_PACKAGES += \
     tinyplay
 
 # RIL
-PRODUCT_PACKAGES += \
-	libsamsung_symbols \
-	libsecril-shim
+#PRODUCT_PACKAGES += \
+#	libsamsung_symbols \
+#	libsecril-shim
 
 # NFC
 PRODUCT_PACKAGES += \
@@ -100,10 +100,10 @@ PRODUCT_PACKAGES += \
     com.android.nfc_extras
 
 # RIL
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.telephony.ril_class=SamsungExynos4RIL \
-    ro.telephony.call_ring.multiple=false \
-    ro.telephony.call_ring.delay=3000
+#PRODUCT_PROPERTY_OVERRIDES += \
+#    ro.telephony.ril_class=SamsungExynos4RIL \
+#    ro.telephony.call_ring.multiple=false \
+#    ro.telephony.call_ring.delay=3000
 
 # These are the hardware-specific features
 PRODUCT_COPY_FILES += \
